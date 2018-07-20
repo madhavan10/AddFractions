@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class FractionAddCoprimeCase implements Problem {
     
-    final int numerator1, denominator1;
-    final int numerator2, denominator2;
+    protected final int numerator1, denominator1;
+    protected final int numerator2, denominator2;
     
-    ReduceToLowestTerms answer;
+    protected ReduceToLowestTerms answer;
 
     public FractionAddCoprimeCase(int num1, int denom1, int num2, int denom2) {
         numerator1 = num1;
@@ -39,8 +39,7 @@ public class FractionAddCoprimeCase implements Problem {
 
     public Problem execute() {
         Scanner readUser = new Scanner(System.in);
-        System.out.println("Find the resulting fraction: " + numerator1 + "/" + denominator1
-                + " + " + numerator2 + "/" + denominator2);
+        System.out.println("Find the resulting fraction: " + fraction1() + " + " + fraction2());
         System.out.println("First enter the numerator of the resulting fraction: ");
         int userNum = readUser.nextInt();
         System.out.println("Now enter the denominator of the resulting fraction: ");
@@ -61,9 +60,8 @@ public class FractionAddCoprimeCase implements Problem {
         else return new FractionEquivalencyCoprimeCase(numerator1, denominator1, numerator2, denominator2);
        
     }
+    
+    public String fraction1() { return numerator1 + "/" denominator1 };
+    public String fraction2() { return numerator2 + "/" denominator2 };
 
-    protected int getNumerator1() { return numerator1; }
-    protected int getNumerator2() { return numerator2; }
-    protected int getDenominator1() { return denominator1; }
-    protected int getDenominator2() { return denominator2; }
 }
