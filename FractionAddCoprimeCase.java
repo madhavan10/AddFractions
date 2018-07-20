@@ -61,4 +61,9 @@ public class FractionAddCoprimeCase implements Problem {
         else return new FractionEquivalencyCoprimeCase(numerator1, denominator1, numerator2, denominator2);
        
     }
+
+    protected int getNumerator1() { return numerator1; }
+    protected int getNumerator2() { return numerator2; }
+    protected int getDenominator1() { return denominator1; }
+    protected int getDenominator2() { return denominator2; }
 }
