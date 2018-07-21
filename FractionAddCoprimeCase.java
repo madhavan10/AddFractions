@@ -28,7 +28,7 @@ public class FractionAddCoprimeCase implements Problem {
 
         if(coprimes.length == 2) {
             denominator1 = coprimes[0];
-            denomninator2 = coprimes[1];
+            denominator2 = coprimes[1];
             int answerNumerator = numerator1 * denominator2 + numerator2 * denominator1;
             int answerDenominator = denominator1 * denominator2;
             answer = new ReduceToLowestTerms(answerNumerator, answerDenominator);

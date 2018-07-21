@@ -17,9 +17,9 @@ public class FractionEquivalencyCoprimeCase extends FractionAddCoprimeCase {
     public Problem execute() {
         Scanner readUser = new Scanner(in);
         out.println("We need to find fractions equivalent to " + fraction1() + " and " + fraction2()
-                + "which have common denominator " + denom1 + " * " + denom2);
+                + "which have common denominator " + denominator1 + " * " + denominator2);
         out.println("Start by converting " + fraction1() + " into an equivalent fraction with denominator "
-                + denom1 + " * " + denom2);
+                + denominator1 + " * " + denominator2);
         out.println("Enter the numerator of the equivalent fraction: ");
         int userNum1 = readUser.nextInt();
         out.println("Enter the (common) denominator of the equivalent fraction: ");
