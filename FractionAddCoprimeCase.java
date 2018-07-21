@@ -18,7 +18,7 @@ public class FractionAddCoprimeCase implements Problem {
 
     }
 
-    public FractionAddCoprimeCase() {
+    public FractionAddCoprimeCase() throws CoprimePairException {
         
         //generates integers between 1 and 10
         numerator1 = (int) (Math.random() * 10 + 1);
@@ -47,7 +47,7 @@ public class FractionAddCoprimeCase implements Problem {
         ReduceToLowestTerms userAnswer = new ReduceToLowestTerms(userNum, userDenom);
         
         //user answers correctly and in lowest terms
-        if(answer.equals(userAnswer.originalFraction()) {
+        if(answer.equals(userAnswer.originalFraction())) {
             System.out.println("You have correctly solved the problem.");
             return new CorrectState();
         }
@@ -61,7 +61,7 @@ public class FractionAddCoprimeCase implements Problem {
        
     }
     
-    public String fraction1() { return numerator1 + "/" denominator1 };
-    public String fraction2() { return numerator2 + "/" denominator2 };
+    public String fraction1() { return numerator1 + "/" + denominator1; }
+    public String fraction2() { return numerator2 + "/" + denominator2; }
 
 }
