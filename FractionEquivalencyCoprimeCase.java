@@ -3,12 +3,19 @@ import static java.lang.System.out;
 
 public class FractionEquivalencyCoprimeCase extends FractionAddCoprimeCase {
     
+    private ReduceToLowestTerms fraction1, fraction2;
     protected int num1TimesDenom2;
     protected int num2TimesDenom1;
     protected int commonDenominator;
 
-    public FractionEquivalencyCoprimeCase(int num1, int denom1, int num2, int denom2) {
+    public FractionEquivalencyCoprimeCase(int num1, int denom1, int num2, int denom2) { 
         super(num1, denom1, num2, denom2);
+        fraction1 = new ReduceToLowestTerms(super.numerator1, super.denominator1);
+        fraction2 = new ReduceToLowestTerms(super.numerator2, super.denominator2);
+        numerator1 = fraction1.getReducedNumerator();
+        denominator1 = fraction1.getReducedDenominator();
+        numerator2 = fraction2.getReducedNumerator();
+        denominator2 = fraction2.getReducedDenominator();
         num1TimesDenom2 = numerator1 * denominator2;
         num2TimesDenom1 = numerator2 * denominator1;
         commonDenominator = denominator1 * denominator2;
@@ -18,8 +25,27 @@ public class FractionEquivalencyCoprimeCase extends FractionAddCoprimeCase {
     public Problem execute() {
         Scanner readUser = new Scanner(System.in);
         
+        //fraction1 is not in lowest terms
+        if(!fraction1.isInLowestTerms()) {
+           out.println(fraction1.originalFraction() + " is not in lowest terms!");
+           Problem reduceProblem = fraction1;
+           while(!(reduceProblem instanceof CorrectState)) {
+                reduceProblem = reduceProblem.execute();
+           }
+        }
+
+        //fraction2 is not in lowest terms
+        if(!fraction2.isInLowestTerms()) {
+           out.println(fraction2.originalFraction() + " is not in lowest terms!");
+           Problem reduceProblem = fraction2;
+           while(!(reduceProblem instanceof CorrectState)) {
+                reduceProblem = reduceProblem.execute();
+           }
+        }
+        
+        out.println("Now we have the problem: " + fraction1() + "  +  " + fraction2() + "  =  ?");
         out.println("We need to find fractions equivalent to " + fraction1() + " and " + fraction2()
-                + "which have common denominator " + denominator1 + " * " + denominator2);
+                + " which have common denominator " + denominator1 + " * " + denominator2);
         
         out.println("Start by converting " + fraction1() + " into an equivalent fraction with denominator " + denominator1 + " * " + denominator2);
         out.println("Enter the numerator of the equivalent fraction: ");

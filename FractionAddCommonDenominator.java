@@ -32,7 +32,7 @@ public class FractionAddCommonDenominator implements Problem {
         out.println("Correct. " + fractionize(numerator1, denominator) + "  +  " + fractionize(numerator2, denominator) + "  =  " + fractionize(numerator, denominator));
         
         ReduceToLowestTerms reduceAnswer = new ReduceToLowestTerms(numerator, denominator);
-        if(reduceAnswer.equals(reduceAnswer.originalFraction())) {
+        if((reduceAnswer.toString()).equals(reduceAnswer.originalFraction())) {
             return new CorrectState();
         }
         else {

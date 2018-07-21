@@ -36,6 +36,7 @@ public class ReduceToLowestTerms implements Problem {
         
         //user answers correctly
         if(this.toString().equals(userAnswer.originalFraction())) {
+            System.out.println("You just reduced " + this.originalFraction() + " to " + this.toString() + ".");
             return new CorrectState();
         }
 
@@ -94,7 +95,14 @@ public class ReduceToLowestTerms implements Problem {
     public String originalFraction() {
         return numerator + "/" + denominator;
     }
+    
+    public int getReducedNumerator() { return reducedNumerator; }
+    public int getReducedDenominator() { return reducedDenominator; }
+    
+    public boolean isInLowestTerms() {
+        return (this.toString()).equals(this.originalFraction());
+    }
 
-}
+} //end class
     
 
