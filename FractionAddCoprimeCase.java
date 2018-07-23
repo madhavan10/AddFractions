@@ -4,13 +4,16 @@ public class FractionAddCoprimeCase implements Problem {
     
     protected int numerator1, denominator1;
     protected int numerator2, denominator2;
-    protected ReduceToLowestTerms answer;
+    protected ReduceToLowestTerms fraction1, fraction2, answer;
 
     public FractionAddCoprimeCase(int num1, int denom1, int num2, int denom2) {
         numerator1 = num1;
         denominator1 = denom1;
         numerator2 = num2;
         denominator2 = denom2;
+        fraction1 = new ReduceToLowestTerms(numerator1, denominator1);
+        fraction2 = new ReduceToLowestTerms(numerator2, denominator2);
+
         int answerNumerator = numerator1 * denominator2 + numerator2 * denominator1;
         int answerDenominator = denominator1 * denominator2;
         answer = new ReduceToLowestTerms(answerNumerator, answerDenominator);
@@ -27,6 +30,8 @@ public class FractionAddCoprimeCase implements Problem {
         if(coprimes.length == 2) {
             denominator1 = coprimes[0];
             denominator2 = coprimes[1];
+            fraction1 = new ReduceToLowestTerms(numerator1, denominator1);
+            fraction2 = new ReduceToLowestTerms(numerator2, denominator2);
             int answerNumerator = numerator1 * denominator2 + numerator2 * denominator1;
             int answerDenominator = denominator1 * denominator2;
             answer = new ReduceToLowestTerms(answerNumerator, answerDenominator);
@@ -60,7 +65,32 @@ public class FractionAddCoprimeCase implements Problem {
         //user answers incorrectly
         else {
             System.out.println("Your answer is incorrect...");
-            return new FractionEquivalencyCoprimeCase(numerator1, denominator1, numerator2, denominator2);
+            //both fractions in lowest terms - send to fraction equivalency module
+            if(fraction1.isInLowestTerms() && fraction2.isInLowestTerms()) {
+                return new FractionEquivalencyCoprimeCase(fraction1.getReducedNumerator(), fraction1.getReducedDenominator(), 
+                        fraction2.getReducedNumerator(), fraction2.getReducedDenominator());
+            }
+
+            //fraction1 is not in lowest terms
+            if(!fraction1.isInLowestTerms()) {
+               System.out.println(fraction1.originalFraction() + " is not in lowest terms!");
+               Problem reduceProblem = fraction1;
+               while(!(reduceProblem instanceof CorrectState)) {
+                    reduceProblem = reduceProblem.execute();
+               }
+            }
+
+            //fraction2 is not in lowest terms
+            if(!fraction2.isInLowestTerms()) {
+               System.out.println(fraction2.originalFraction() + " is not in lowest terms!");
+               Problem reduceProblem = fraction2;
+               while(!(reduceProblem instanceof CorrectState)) {
+                    reduceProblem = reduceProblem.execute();
+               }
+            }
+            return new FractionAddCoprimeCase(fraction1.getReducedNumerator(), fraction1.getReducedDenominator(),
+                    fraction2.getReducedNumerator(), fraction2.getReducedDenominator());
+
         }
     }
     
