@@ -43,9 +43,9 @@ public class FractionAddCoprimeCase implements Problem {
     public Problem execute() {
         Scanner readUser = new Scanner(System.in);
         System.out.println("Find the resulting fraction: " + fraction1() + "  +  " + fraction2());
-        System.out.println("First enter the denominator of the resulting fraction: ");
+        System.out.print("First enter the denominator of the resulting fraction: ");
         int userDenom = readUser.nextInt();
-        System.out.println("Now enter the numerator of the resulting fraction: ");
+        System.out.print("Now enter the numerator of the resulting fraction: ");
         int userNum = readUser.nextInt();
         ReduceToLowestTerms userAnswer = new ReduceToLowestTerms(userNum, userDenom);
         
@@ -59,7 +59,7 @@ public class FractionAddCoprimeCase implements Problem {
         else if((answer.toString()).equals(userAnswer.toString())) {
             System.out.println("Correct. " + fractionize(numerator1, denominator1) + "  +  " + fractionize(numerator2, denominator2) + 
                     "  =  " + userAnswer.originalFraction());
-            System.out.println("You answer is correct. Now reduce it to lowest terms.");
+            System.out.println("Your answer is correct. Now reduce it to lowest terms.");
             return userAnswer;
         }
         //user answers incorrectly

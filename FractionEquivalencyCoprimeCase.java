@@ -23,60 +23,60 @@ public class FractionEquivalencyCoprimeCase extends FractionAddCoprimeCase {
                 + " which have common denominator " + denominator1 + " * " + denominator2);
         
         out.println("Start by converting " + fraction1() + " into an equivalent fraction with denominator " + denominator1 + " * " + denominator2);
-        out.println("Enter the numerator of the equivalent fraction: ");
+        out.print("Enter the numerator of the equivalent fraction: ");
         if(readUser.nextInt() != num1TimesDenom2) {
-            out.println("That is incorrect. By what number should the numerator of " + fraction1()
-                    + " be multipled to get an equivalent fraction with denominator " + denominator1 + " * " + denominator2 + " ?");
+            out.print("That is incorrect. By what number should the numerator of " + fraction1()
+                    + " be multipled to get an equivalent fraction with denominator " + denominator1 + " * " + denominator2 + " ?: ");
             
             if(readUser.nextInt() != denominator2) {
-                out.println("That is incorrect. What is the numerator obtained when you multiply " + fraction1() + " above and below by " + denominator2 + " ?");
+                out.print("That is incorrect. What is the numerator obtained when you multiply " + fraction1() + " above and below by " + denominator2 + " ?: ");
                 
                 while(readUser.nextInt() != num1TimesDenom2) {
                     out.println("That is incorrect. Try again.");
-                    out.println("What is the numerator obtained when you multiply " + fraction1() + " above and below by " + denominator2 + " ?");
+                    out.print("What is the numerator obtained when you multiply " + fraction1() + " above and below by " + denominator2 + " ?: ");
                 }
             }
             else {
-                out.println("Correct. Now what is the numerator obtained when you multiply " + fraction1() + " above and below by " + denominator2 + " ?");
+                out.print("Correct. Now what is the numerator obtained when you multiply " + fraction1() + " above and below by " + denominator2 + " ?: ");
          
                 while(readUser.nextInt() != num1TimesDenom2) {
                     out.println("That is incorrect. Try again.");
-                    out.println("What is the numerator obtained when you multiply " + fraction1() + " above and below by " + denominator2 + " ?");
+                    out.print("What is the numerator obtained when you multiply " + fraction1() + " above and below by " + denominator2 + " ?: ");
                 }
             }
         }
-        out.println("Correct. Enter the (common) denominator of the equivalent fraction: ");
+        out.print("Correct. Enter the (common) denominator of the equivalent fraction: ");
         while(readUser.nextInt() != commonDenominator) {
-            out.println("That is incorrect. The common denominator is " + denominator1 + " * " + denominator2 + ". Enter the product!: ");
+            out.print("That is incorrect. The common denominator is " + denominator1 + " * " + denominator2 + ". Enter the product!: ");
         }
         out.println("Correct. You have converted " + fraction1() + " into the equivalent fraction " + fractionize(num1TimesDenom2, commonDenominator));
         
         out.println("Now convert " + fraction2() + " into an equivalent fraction with denominator " + denominator1 + " * " + denominator2);
-        out.println("Enter the numerator of the equivalent fraction: ");
+        out.print("Enter the numerator of the equivalent fraction: ");
         if(readUser.nextInt() != num2TimesDenom1) {
-            out.println("That is incorrect. By what number should the numerator of " + fraction2()
-                    + " be multipled to get an equivalent fraction with denominator " + denominator1 + " * " + denominator2 + " ?");
+            out.print("That is incorrect. By what number should the numerator of " + fraction2()
+                    + " be multipled to get an equivalent fraction with denominator " + denominator1 + " * " + denominator2 + " ?: ");
             
             if(readUser.nextInt() != denominator1) {
-                out.println("That is incorrect. What is the numerator obtained when you multiply " + fraction2() + " above and below by " + denominator1 + " ?");
+                out.print("That is incorrect. What is the numerator obtained when you multiply " + fraction2() + " above and below by " + denominator1 + " ?: ");
                 
                 while(readUser.nextInt() != num2TimesDenom1) {
                     out.println("That is incorrect. Try again.");
-                    out.println("What is the numerator obtained when you multiply " + fraction2() + " above and below by " + denominator1 + " ?");
+                    out.print("What is the numerator obtained when you multiply " + fraction2() + " above and below by " + denominator1 + " ?: ");
                 }
             }
             else {
-                out.println("Correct. Now what is the numerator obtained when you multiply " + fraction2() + " above and below by " + denominator1 + " ?");
+                out.print("Correct. Now what is the numerator obtained when you multiply " + fraction2() + " above and below by " + denominator1 + " ?: ");
          
                 while(readUser.nextInt() != num2TimesDenom1) {
                     out.println("That is incorrect. Try again.");
-                    out.println("What is the numerator obtained when you multiply " + fraction2() + " above and below by " + denominator1 + " ?");
+                    out.print("What is the numerator obtained when you multiply " + fraction2() + " above and below by " + denominator1 + " ?: ");
                 }
             }
         }
-        out.println("Correct. Enter the (common) denominator of the equivalent fraction: ");
+        out.print("Correct. Enter the (common) denominator of the equivalent fraction: ");
         while(readUser.nextInt() != commonDenominator) {
-            out.println("That is incorrect. The common denominator is " + denominator1 + " * " + denominator2 + ". Enter the product!: ");
+            out.print("That is incorrect. The common denominator is " + denominator1 + " * " + denominator2 + ". Enter the product!: ");
         }
         out.println("Correct. You have converted " + fraction2() + " into the equivalent fraction " + fractionize(num2TimesDenom1, commonDenominator));
 
