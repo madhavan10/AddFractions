@@ -18,24 +18,6 @@ public class FractionEquivalencyCoprimeCase extends FractionAddCoprimeCase {
     public Problem execute() {
         Scanner readUser = new Scanner(System.in);
         
-        //fraction1 is not in lowest terms
-        if(!fraction1.isInLowestTerms()) {
-           out.println(fraction1.originalFraction() + " is not in lowest terms!");
-           Problem reduceProblem = fraction1;
-           while(!(reduceProblem instanceof CorrectState)) {
-                reduceProblem = reduceProblem.execute();
-           }
-        }
-
-        //fraction2 is not in lowest terms
-        if(!fraction2.isInLowestTerms()) {
-           out.println(fraction2.originalFraction() + " is not in lowest terms!");
-           Problem reduceProblem = fraction2;
-           while(!(reduceProblem instanceof CorrectState)) {
-                reduceProblem = reduceProblem.execute();
-           }
-        }
-        
         out.println("Now we have the problem: " + fraction1() + "  +  " + fraction2() + "  =  ?");
         out.println("We need to find fractions equivalent to " + fraction1() + " and " + fraction2()
                 + " which have common denominator " + denominator1 + " * " + denominator2);
