@@ -18,7 +18,7 @@ public class FractionEquivalencyCoprimeCase extends FractionAddCoprimeCase {
     public Problem execute() {
         Scanner readUser = new Scanner(System.in);
         
-        out.println("Now we have the problem: " + fraction1() + "  +  " + fraction2() + "  =  ?");
+        out.println("We have the problem: " + fraction1() + "  +  " + fraction2() + "  =  ?");
         out.println("We need to find fractions equivalent to " + fraction1() + " and " + fraction2()
                 + " which have common denominator " + denominator1 + " * " + denominator2);
         
