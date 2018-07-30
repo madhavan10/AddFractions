@@ -33,8 +33,8 @@ public class MathTools {
 		return product;
     }
 
-	//generate first coprime by drawing with replacement from first {2, 3, 5, 7, 11} and then {2, 3, 5}
-	//generate second coprime by drawing twice with replacement from {2, 3, 5, 7, 11} - {draw1, draw2}
+	//generate first coprime by drawing with replacement from first {2, 3, 5, 7} and then {2, 3, 5}
+	//generate second coprime by drawing twice with replacement from {2, 3, 5, 7, 11} - {draw1, draw2} but discard if >= 50
 	//NOTE: generating second coprime has no worst case time complexity as done here
 	public static int[] generateCoprimes() {
 		
@@ -45,7 +45,7 @@ public class MathTools {
 		ArrayList<Integer> alreadyDrawn = new ArrayList<Integer>();
 
 		//generating first coprime
-		int draw = smallPrimes[gen.nextInt(5)];
+		int draw = smallPrimes[gen.nextInt(4)];
 		alreadyDrawn.add(draw);
 		coprimes[0] = draw;
 		draw = smallPrimes[gen.nextInt(3)];
@@ -54,17 +54,19 @@ public class MathTools {
 		coprimes[0] *= draw;
 
 		//generating second coprime
-		draw = smallPrimes[gen.nextInt(5)];
-		while(alreadyDrawn.contains(draw)) {
-			draw = smallPrimes[gen.nextInt(5)];
+		int draw1 = smallPrimes[gen.nextInt(4)];
+		while(alreadyDrawn.contains(draw1)) {
+			draw1 = smallPrimes[gen.nextInt(4)];
 		}
-		coprimes[1] = draw;
-		
-		draw = smallPrimes[gen.nextInt(3)];
-		while(alreadyDrawn.contains(draw)) {
-			draw = smallPrimes[gen.nextInt(3)];
-		}
-		coprimes[1] *= draw;
+        //keep the final number under 50
+		do {
+		    coprimes[1] = draw1;
+            int draw2 = smallPrimes[gen.nextInt(5)];
+            while(alreadyDrawn.contains(draw2)) {
+                draw2 = smallPrimes[gen.nextInt(5)];
+            }
+            coprimes[1] *= draw2;
+        } while(coprimes[1] >= 50);
 
 		return coprimes;
 	}
