@@ -84,8 +84,4 @@ public class FractionEquivalencyCoprimeCase extends FractionAddCoprimeCase {
     
     } //end execute
 
-    private String fractionize(int a, int b) {
-        return a + "/" + b;
-    }
-
 } //end class

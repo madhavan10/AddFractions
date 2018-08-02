@@ -1,5 +1,5 @@
 public class Main {
-	public static void main(String[] args) throws CoprimePairException {
+	public static void main(String[] args) {
 		Problem nextProblem = new FractionAddCoprimeCase();
             while(!(nextProblem instanceof CorrectState)) {
                 nextProblem = nextProblem.execute();
