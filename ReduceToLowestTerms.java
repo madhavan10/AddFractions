@@ -27,9 +27,9 @@ public class ReduceToLowestTerms implements Problem {
 
 		Scanner readInput = new Scanner(System.in);
         System.out.println("What is the fraction " + this.originalFraction() + " after reducing it to lowest terms?");
-        System.out.println("First enter the numerator:");
+        System.out.print("First enter the numerator:");
         int userNum = readInput.nextInt();
-        System.out.println("Now enter the denominator:");
+        System.out.print("Now enter the denominator:");
         int userDenom = readInput.nextInt();
 
         ReduceToLowestTerms userAnswer = new ReduceToLowestTerms(userNum, userDenom);
@@ -54,7 +54,7 @@ public class ReduceToLowestTerms implements Problem {
         else {
             String yesNo = null;
             do {
-                System.out.println("Incorrect. Do you need a hint? Enter y for yes OR n for no:");
+                System.out.print("Incorrect. Do you need a hint? Enter y for yes OR n for no: ");
                 yesNo = readInput.next();
                 if(yesNo.equalsIgnoreCase("y") || yesNo.equalsIgnoreCase("yes")) {
                     return new FindAFactor(this.numerator, this.denominator);
