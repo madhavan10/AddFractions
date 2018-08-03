@@ -21,19 +21,17 @@ public class FractionEquivalencyReduceDenominator extends FractionAddReduceDenom
 
         out.println("We have the problem " + fraction1() + "  +  " + fraction2() + "  =  " + "?");
         out.println("Start by reducing " + fraction2() + " to an equivalent fraction with the same denominator as "
-                   + fraction1());
+                   + fraction1() + ".");
         out.print("Enter the numerator of " + fraction2() + " after performing the reduction: ");
         
         if(readUser.nextInt() != reducedNum2) {
             out.println("That is incorrect.");
-            out.print("What number should the numerator and denominator of " + fraction2() 
-                    + " both be divided by such that " + fraction2() + " has the same denominator as " + fraction1() 
-                    + " ?: ");
+            out.print("By what number should we divide " + fraction2() 
+                    + " above and below to get an equivalent fraction with denominator " + denominator1 + " ?: ");
             while(readUser.nextInt() != factor) {
                 out.println("Incorrect. Try again.");
-                out.print("What number should the numerator and denominator of " + fraction2() 
-                        + " both be divided by such that " + fraction2() + " has the same denominator as " + fraction1() 
-                        + " ?: ");
+                out.print("By what number should we divide " + fraction2() 
+                        + " above and below to get an equivalent fraction with denominator " + denominator1 + " ?: ");
             }
             out.print("Correct. Now divide " + numerator2 + " by " + factor + ". What do you get?: ");
             if(readUser.nextInt() != reducedNum2) {

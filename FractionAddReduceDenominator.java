@@ -61,7 +61,7 @@ public class FractionAddReduceDenominator extends FractionAddCoprimeCase {
         else {
             String yesNo = null;
             do {
-                out.println("Incorrect. Do you need a hint? Enter y for yes OR n for no:");
+                out.print("Incorrect. Do you need a hint? Enter y for yes OR n for no:");
                 yesNo = readUser.next();
                 if(yesNo.equalsIgnoreCase("y") || yesNo.equalsIgnoreCase("yes")) {
                     //user needs hint - send to fraction equivalency reduce case
