@@ -13,8 +13,9 @@ public class FractionEquivalencyCoprimeCase extends FractionAddCoprimeCase {
         num2TimesDenom1 = numerator2 * denominator1;
         commonDenominator = denominator1 * denominator2;
     }
-    
+     
     //Prompt the user to convert the operand fractions into equivalent ones with a common denominator
+    @Override
     public Problem execute() {
         Scanner readUser = new Scanner(System.in);
         

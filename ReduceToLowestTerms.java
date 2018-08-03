@@ -27,9 +27,9 @@ public class ReduceToLowestTerms implements Problem {
 
 		Scanner readInput = new Scanner(System.in);
         System.out.println("What is the fraction " + this.originalFraction() + " after reducing it to lowest terms?");
-        System.out.print("First enter the numerator:");
+        System.out.print("First enter the numerator: ");
         int userNum = readInput.nextInt();
-        System.out.print("Now enter the denominator:");
+        System.out.print("Now enter the denominator: ");
         int userDenom = readInput.nextInt();
 
         ReduceToLowestTerms userAnswer = new ReduceToLowestTerms(userNum, userDenom);
